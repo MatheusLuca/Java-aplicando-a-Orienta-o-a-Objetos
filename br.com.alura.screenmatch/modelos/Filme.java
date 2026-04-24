@@ -13,6 +13,26 @@ public class Filme {
         this.nome = nome;
     }
 
+    public void setIncluidoNoPlano(boolean incluidoNoPlano) {
+        this.incluidoNoPlano = incluidoNoPlano;
+    }
+
+    public void setAnoDeLancamento(int anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+        this.duracaoEmMinutos = duracaoEmMinutos;
+    }
+
+    public int getTotalDeAvaliacoes() {
+        return totalDeAvaliacoes;
+    }
+
+    public double getSomaDasAvaliacoes() {
+        return somaDasAvaliacoes;
+    }
+
     public void exibeFichaTecnica(){
         System.out.println("Nome do filme: " + this.nome);
         System.out.println("Ano de lançamento: " + this.anoDeLancamento);
