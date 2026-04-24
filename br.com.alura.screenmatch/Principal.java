@@ -15,5 +15,8 @@ public class Principal {
         System.out.println("Soma das avaliações: " + meuFilme.somaDasAvaliacoes);
         System.out.println("*********************");
         System.out.println("Media das avaliações: " + meuFilme.pegaMedia());
+        System.out.println(meuFilme.getAnoDeLancamento());
+
+
     }
 }
