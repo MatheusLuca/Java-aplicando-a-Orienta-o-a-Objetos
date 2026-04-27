@@ -1,19 +1,26 @@
-# Estrutura da pasta `src`
+# Java: aplicando orientacao a objetos
 
-Esta pasta reune os exemplos do projeto de **Java com Orientacao a Objetos**, com foco em:
+Projeto de estudo com exercicios progressivos de Java cobrindo:
 
-- criacao de classes;
-- definicao de atributos e metodos;
-- instanciacao de objetos;
-- interacao entre objetos no fluxo principal;
-- uso de **modificadores de acesso** (`private`, `public`) e encapsulamento com getters/setters.
+- criacao de classes, atributos e metodos;
+- encapsulamento com modificadores de acesso e getters/setters;
+- heranca e polimorfismo;
+- interfaces e classes que implementam contratos.
 
-## Visao geral da estrutura
+## Estrutura do projeto
 
 ```text
-src/
-|-- Filme.java
+br.com.alura.screenmatch/
 |-- Principal.java
+|-- calculadora/
+|   |-- CalculadoraDeTempo.java
+|   |-- Classificacao.java
+|   `-- FiltroRecomendacao.java
+|-- modelos/
+|   |-- Titulo.java
+|   |-- Filme.java
+|   |-- Serie.java
+|   `-- Episodio.java
 |-- desafio/
 |   |-- Aluno.java
 |   |-- Calculadora.java
@@ -21,128 +28,93 @@ src/
 |   |-- Main.java
 |   |-- Musica.java
 |   `-- Pessoa.java
-`-- desafiomodificadores/
-    |-- Aluno.java
-    |-- ContaBancaria.java
-    |-- IdadePessoa.java
-    |-- Livro.java
+|-- desafiomodificadores/
+|   |-- Aluno.java
+|   |-- ContaBancaria.java
+|   |-- IdadePessoa.java
+|   |-- Livro.java
+|   |-- Main.java
+|   `-- Produto.java
+`-- desafiointerface/
+    |-- CalculoGeometrico.java
+    |-- CalculadoraSalaRetangular.java
+    |-- ConversaoFinanceira.java
+    |-- ConversorMoeda.java
+    |-- ConversorTemperatura.java
+    |-- ConversorTemperaturaPadrao.java
     |-- Main.java
-    `-- Produto.java
+    |-- Tabuada.java
+    `-- TabuadaMultiplicacao.java
 ```
 
-## Classes da raiz de `src`
+## Modulo principal (`Principal`, `modelos`, `calculadora`)
 
-### `Filme.java`
-
-Representa uma entidade de filme com dados e comportamentos basicos:
-
-- **Atributos**: nome, ano de lancamento, duracao, soma das avaliacoes e total de avaliacoes;
-- **Metodo `exibeFichaTecnica()`**: imprime dados principais no console;
-- **Metodo `avalia(double nota)`**: soma novas notas e incrementa o contador de avaliacoes;
-- **Metodo `pegaMedia()`**: calcula a media simples das notas cadastradas.
-
-Esse arquivo demonstra o conceito de modelagem de objeto e responsabilidade da classe.
-
-### `Principal.java`
-
-Funciona como ponto de entrada do exemplo principal:
-
-1. cria um objeto da classe `Filme`;
-2. preenche os atributos do filme;
-3. imprime a ficha tecnica;
-4. registra avaliacoes;
-5. calcula e exibe a media final.
-
-> Observacao: para executar como aplicacao Java diretamente, o metodo de entrada deve ser `public static void main(String[] args)`.
+- `Titulo` — classe base com nome, ano, duracao e sistema de avaliacoes;
+- `Filme` — estende `Titulo`, adiciona diretor e implementa `Classificacao`;
+- `Serie` — estende `Titulo`, sobrescreve duracao com base em temporadas/episodios;
+- `Episodio` — implementa `Classificacao` com regra baseada em visualizacoes;
+- `Classificacao` — interface com metodo `getClassificacao()`;
+- `FiltroRecomendacao` — sugere conteudos de acordo com a classificacao;
+- `CalculadoraDeTempo` — soma a duracao de varios titulos;
+- `Principal` — ponto de entrada que cria titulos, avalia e exibe resultados.
 
 ## Subpasta `desafio`
 
-A pasta `desafio/` contem exercicios praticos para consolidar os fundamentos de POO com classes menores e objetivos especificos.
+Exercicios de fundamentos de POO com classes simples:
 
-Documentacao detalhada da pasta:
-
-- `src/desafio/README.md`
+- `Pessoa` — exibe mensagem;
+- `Calculadora` — retorna o dobro de um numero;
+- `Musica` — ficha tecnica, avaliacoes e media;
+- `Carro` — ficha tecnica e calculo de idade do veiculo;
+- `Aluno` — exibe nome e idade;
+- `Main` — executa todos os exemplos acima.
 
 ## Subpasta `desafiomodificadores`
 
-A pasta `desafiomodificadores/` contem exercicios praticos focados em **modificadores de acesso** e **encapsulamento**. Os exercicios demonstram o uso de atributos `private` com acesso controlado por getters e setters.
+Exercicios focados em **modificadores de acesso** e **encapsulamento**. Menu interativo via `Scanner` com 5 opcoes:
 
-### `Main.java`
+1. **Conta bancaria** (`ContaBancaria`) — titular, numero e saldo com getters/setters;
+2. **Idade pessoa** (`IdadePessoa`) — verifica maioridade;
+3. **Desconto produto** (`Produto`) — aplica porcentagem de desconto;
+4. **Notas aluno** (`Aluno`) — registra notas e calcula media;
+5. **Livros** (`Livro`) — cadastra autor/titulo e exibe com `toString()`.
 
-Ponto de entrada do pacote. Apresenta um **menu interativo** via `Scanner` com 5 opcoes:
+## Subpasta `desafiointerface`
 
-1. **Conta bancaria** — cadastra titular, numero e saldo;
-2. **Idade pessoa** — verifica se a pessoa e maior de idade;
-3. **Desconto produto** — aplica porcentagem de desconto sobre o preco;
-4. **Notas aluno** — registra notas e calcula a media;
-5. **Livros** — cadastra autor e titulo e exibe informacoes.
+Exercicios focados em **interfaces** — cada exercicio define uma interface e uma classe que a implementa:
 
-### `ContaBancaria.java`
+| Interface | Implementacao | Descricao |
+|---|---|---|
+| `ConversaoFinanceira` | `ConversorMoeda` | Converte dolar para real (taxa fixa 5.00) |
+| `CalculoGeometrico` | `CalculadoraSalaRetangular` | Calcula area e perimetro de um retangulo |
+| `Tabuada` | `TabuadaMultiplicacao` | Exibe a tabuada de multiplicacao de 0 a 10 |
+| `ConversorTemperatura` | `ConversorTemperaturaPadrao` | Converte entre Celsius e Fahrenheit |
 
-Modela uma conta bancaria com encapsulamento:
+`Main` — executa todos os exercicios com entrada de dados via `Scanner`, incluindo um loop para conversoes de temperatura.
 
-- **Atributos privados**: `numeroConta` (int), `saldo` (double);
-- **Atributo publico**: `titular` (String);
-- **Getters/Setters**: `getNumeroConta()`, `setNumeroConta()`, `getSaldo()`, `setSaldo()`.
+## Como executar
 
-### `IdadePessoa.java`
-
-Representa uma pessoa e verifica sua maioridade:
-
-- **Atributos privados**: `nome` (String), `idade` (int);
-- **Getters/Setters**: `getNome()`, `setNome()`, `getIdade()`, `setIdade()`;
-- **Metodo `verificaIdade()`**: retorna `true` se a idade for >= 18.
-
-### `Produto.java`
-
-Modela um produto com funcionalidade de desconto:
-
-- **Atributos privados**: `nome` (String), `preco` (double);
-- **Getters/Setters**: `getNome()`, `setNome()`, `getPreco()`, `setPreco()`;
-- **Metodo `descontoProduto(int desconto)`**: recebe a porcentagem de desconto e retorna o preco final.
-
-### `Aluno.java`
-
-Representa um aluno com registro de notas:
-
-- **Atributos privados**: `nome` (String), `notas` (ArrayList\<Double\>);
-- **Metodo `adicionarNotas(double nota)`**: adiciona uma nota a lista;
-- **Metodo `calcularMedia()`**: percorre a lista e retorna a media aritmetica.
-
-### `Livro.java`
-
-Modela um livro com exibicao formatada:
-
-- **Atributos privados**: `titulo` (String), `autor` (String);
-- **Getters/Setters**: `getTitulo()`, `setTitulo()`, `getAutor()`, `setAutor()`;
-- **Metodo `toString()`**: sobrescreve o metodo padrao para exibir titulo e autor formatados.
-
-## Como compilar os exemplos da raiz
-
-No terminal, na raiz do projeto:
+Use a IDE (IntelliJ/Cursor) para compilar e executar por pacote, ou pelo terminal:
 
 ```bash
-javac -d out src/Filme.java src/Principal.java
+javac -d out br.com.alura.screenmatch/Principal.java br.com.alura.screenmatch/modelos/*.java br.com.alura.screenmatch/calculadora/*.java
 java -cp out Principal
 ```
 
-Para executar os desafios de modificadores de acesso:
+Pontos de entrada disponiveis:
 
-```bash
-javac -d out src/desafiomodificadores/*.java
-java -cp out desafiomodificadores.Main
-```
+- `Principal` — modulo principal
+- `desafio.Main` — exercicios de fundamentos
+- `desafiomodificadores.Main` — exercicios de encapsulamento
+- `desafiointerface.Main` — exercicios de interfaces
 
-Se quiser executar os desafios da pasta `desafio`, veja os comandos especificos no README da pasta `desafio`.
+## Objetivo pedagogico
 
-## Objetivo pedagogico desta etapa
-
-Ao concluir os exemplos de `src`, voce pratica:
+Ao concluir os exemplos, voce pratica:
 
 - criacao de classes e objetos;
-- separacao entre dados (atributos) e comportamento (metodos);
-- chamadas de metodos de instancia;
-- organizacao de codigo em multiplos arquivos;
-- uso de modificadores de acesso (`private`, `public`) para encapsulamento;
-- implementacao de getters e setters para controle de acesso aos atributos;
-- validacao e logica de negocio dentro dos metodos da classe.
+- separacao entre dados e comportamento;
+- heranca (`extends`) e polimorfismo;
+- interfaces (`implements`) como contratos;
+- modificadores de acesso e encapsulamento;
+- organizacao de codigo em pacotes.
