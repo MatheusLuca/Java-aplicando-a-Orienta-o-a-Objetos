@@ -22,10 +22,7 @@ public class Livro {
 
     @Override
     public String toString() {
-        return """
-                   Titulo do livro: %s\n
-                   Autor do livro: %s\n 
-                """.formatted(this.titulo, this.autor);
+        return String.format("Titulo do livro: %s%nAutor do livro: %s%n", this.titulo, this.autor);
     }
 
 }

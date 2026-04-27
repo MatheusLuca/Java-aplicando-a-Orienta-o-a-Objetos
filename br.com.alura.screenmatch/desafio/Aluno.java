@@ -5,10 +5,7 @@ public class Aluno {
     int idade;
 
     String exibirInformacoes(){
-        return """
-                Nome: %s
-                Idade: %d
-                """.formatted(this.nome, this.idade);
+        return String.format("Nome: %s%nIdade: %d%n", this.nome, this.idade);
     }
 
 }

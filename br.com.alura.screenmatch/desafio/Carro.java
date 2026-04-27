@@ -7,11 +7,8 @@ public class Carro {
 
 
     String fichaTecnica(){
-        return """
-                Modelo do carro %s
-                Ano do carro %d
-                Cor do carro %s
-                """.formatted(this.modelo, this.ano, this.cor);
+        return String.format("Modelo do carro %s%nAno do carro %d%nCor do carro %s%n",
+                this.modelo, this.ano, this.cor);
     }
 
     int idadeCarro(){

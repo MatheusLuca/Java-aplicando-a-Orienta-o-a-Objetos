@@ -1,9 +1,13 @@
-import br.com.alura.screenmatch.modelos.Filme;
+import calculadora.FiltroRecomendacao;
+import modelos.Episodio;
+import modelos.Serie;
+import modelos.Titulo;
+
 
 public class Principal {
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
+        Titulo meuFilme = new Titulo();
         meuFilme.setNome("O poderoso castiga!");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(100);
@@ -23,5 +27,14 @@ public class Principal {
 
         System.out.println("Media das avaliações: " + meuFilme.pegaMedia());
         System.out.println(meuFilme.getAnoDeLancamento());
+
+        Serie lost = new Serie();
+        lost.setNome("Lost");
+        lost.setAnoDeLancamento(2000);
+        lost.setTemporadas(10);
+        lost.setEpisodiosPorTemporada(10);
+        lost.setMinutosPorEpisodio(50);
+        System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
+
     }
 }

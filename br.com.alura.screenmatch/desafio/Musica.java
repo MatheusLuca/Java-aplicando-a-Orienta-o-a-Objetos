@@ -9,13 +9,10 @@ public class Musica {
     double mediasDaavaliacao;
 
     String fichaTecnica(){
-        return """
-                Titulo: %s
-                Artista: %s
-                Ano de lançamento: %d
-                Avaliação: %.2f 
-                Numero de avaliação: %d 
-                """.formatted(this.titulo, this.artista, this.anoDeLancamento, this.avaliacao, this.numeroAvaliacao);
+        return String.format(
+                "Titulo: %s%nArtista: %s%nAno de lançamento: %d%nAvaliação: %.2f%nNumero de avaliação: %d%n",
+                this.titulo, this.artista, this.anoDeLancamento, this.avaliacao, this.numeroAvaliacao
+        );
     }
 
     void  calcularAvaliacoes(double nota){
