@@ -99,5 +99,55 @@ public class Main {
                     break;
             }
         }
+
+
+        System.out.println("Serviço | Produto?");
+        char escolha = sc.next().charAt(0);
+        sc.nextLine();
+        switch (escolha) {
+            case 's':
+                System.out.println("Tipo de Serviço: ");
+                String servicoTipo = sc.nextLine();
+                System.out.println("Descrição: ");
+                String servicoDescricao = sc.nextLine();
+                System.out.println("Valor do pagamento: ");
+                double servicoPagamento = sc.nextDouble();
+                System.out.println("Horas trabalhadas: ");
+                int servicoHorasTrabalhadas = sc.nextInt();
+                Servico servico1 = new Servico();
+                servico1.setTipoServico(servicoTipo);
+                servico1.setDescricao(servicoDescricao);
+                servico1.setPagamento(servicoPagamento);
+                servico1.setHorasTrabalhadas(servicoHorasTrabalhadas);
+                System.out.println("Digite a modalidade de pagamento (1) pix  (2) cartao de credito!");
+                int modalidadePagamento = sc.nextInt();
+                switch (modalidadePagamento) {
+                    case 1:
+                        servico1.setPagamentoTotal(servico1.precoTotalProduto());
+                        System.out.println("Valor total com desconto pix incluido: " + servico1.aplicarDesconto());
+                        break;
+                    case 2:
+                        System.out.println("Valor do servico: " + servico1.precoTotalProduto());
+                }
+                break;
+            case 'p':
+                System.out.println("Nome produto: ");
+                String nomeProduto = sc.nextLine();
+                System.out.println("Descricao: ");
+                String descricaoProduto = sc.nextLine();
+                System.out.println("Preço: ");
+                double precoProduto = sc.nextDouble();
+                System.out.println("Quantidade comprada: ");
+                int quantidadeProduto = sc.nextInt();
+                Produto produto1 = new Produto();
+                produto1.setNome(nomeProduto);
+                produto1.setDescricao(descricaoProduto);
+                produto1.setPreco(precoProduto);
+                produto1.setQuantidade(quantidadeProduto);
+                produto1.setPreco(produto1.precoTotalProduto());
+                produto1.aplicarDesconto();
+                System.out.println(produto1.imprimirProduto());
+                break;
+        }
     }
 }
