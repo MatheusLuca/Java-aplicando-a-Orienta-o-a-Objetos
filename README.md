@@ -42,9 +42,15 @@ br.com.alura.screenmatch/
     |-- ConversorMoeda.java
     |-- ConversorTemperatura.java
     |-- ConversorTemperaturaPadrao.java
-    |-- Main.java
     |-- Tabuada.java
-    `-- TabuadaMultiplicacao.java
+    |-- TabuadaMultiplicacao.java
+    |-- Calculavel.java
+    |-- Livro.java
+    |-- ProdutoFisico.java
+    |-- Vendavel.java
+    |-- Produto.java
+    |-- Servico.java
+    `-- Main.java
 ```
 
 ## Modulo principal (`Principal`, `modelos`, `calculadora`)
@@ -89,8 +95,12 @@ Exercicios focados em **interfaces** — cada exercicio define uma interface e u
 | `CalculoGeometrico` | `CalculadoraSalaRetangular` | Calcula area e perimetro de um retangulo |
 | `Tabuada` | `TabuadaMultiplicacao` | Exibe a tabuada de multiplicacao de 0 a 10 |
 | `ConversorTemperatura` | `ConversorTemperaturaPadrao` | Converte entre Celsius e Fahrenheit |
+| `Calculavel` | `Livro` | Calcula o preco final de um livro com taxa de entrega (1.2x) |
+| `Calculavel` | `ProdutoFisico` | Calcula o preco final de um livro fisico com desconto (10%) a vista |
+| `Vendavel` | `Produto` | Calcula preco total (preco x quantidade) e aplica desconto progressivo (5%, 10% ou 15%) conforme a quantidade |
+| `Vendavel` | `Servico` | Calcula valor total (horas trabalhadas x R$ 30 + pagamento adicional) e aplica desconto de 10% no pagamento via Pix |
 
-`Main` — executa todos os exercicios com entrada de dados via `Scanner`, incluindo um loop para conversoes de temperatura.
+`Main` — executa todos os exercicios com entrada de dados via `Scanner`, incluindo um loop para conversoes de temperatura, cadastro de livros (fisico ou para entrega) e o fluxo final de escolha entre `Servico` e `Produto` com diferentes modalidades de pagamento.
 
 ## Como executar
 
